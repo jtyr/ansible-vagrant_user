@@ -1,0 +1,23 @@
+---
+
+- name: Create Vagrant user
+  user:
+    name: "{{ vagrant_user_name }}"
+    group: "{{ vagrant_user_group }}"
+    password: "{{ vagrant_user_password }}"
+  tags:
+    - vagrant_user_user
+
+- name: Add Vagrant insecure SSH key
+  authorized_key:
+    user: "{{ vagrant_user_name }}"
+    key: "{{ vagrant_user_public_key }}"
+  tags:
+    - vagrant_user_key
+
+- name: Create Vagrant SUDO file
+  copy:
+    content: "{{ vagrant_user_sudo }}"
+    dest: /etc/sudoers.d/vagrant
+  tags:
+    - vagrant_user_sudo
