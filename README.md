@@ -26,6 +26,9 @@ List of variables used by the role:
 # Vagrant user name
 vagrant_user_name: vagrant
 
+# Vagrant user UID
+vagrant_user_uid: 17935
+
 # Vagrant password
 vagrant_user_password: "{{ 'vagrant' | password_hash('sha512', 'vagsalt') }}"
 

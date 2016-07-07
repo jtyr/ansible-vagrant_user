@@ -3,6 +3,7 @@
 - name: Create Vagrant user
   user:
     name: "{{ vagrant_user_name }}"
+    uid: "{{ vagrant_user_uid }}"
     group: "{{ vagrant_user_group }}"
     password: "{{ vagrant_user_password }}"
   tags:
